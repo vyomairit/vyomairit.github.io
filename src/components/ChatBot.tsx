@@ -26,7 +26,7 @@ type ChatResponse = {
 const INITIAL_MESSAGE: ChatMessage = {
   role: "bot",
   id: 0,
-  text: "Hi! I'm Alkairis' AI assistant. Ask me anything about his experience, skills, projects, or availability.",
+  text: "Hi! I'm vyomairit' AI assistant. Ask me anything about his experience, skills, projects, or availability.",
 };
 
 const SUGGESTIONS = [
@@ -115,7 +115,7 @@ const ChatBot = () => {
       <div
         className={`chatbot-window ${open ? "chatbot-open" : ""}`}
         role="dialog"
-        aria-label="Chat with Alkairis AI"
+        aria-label="Chat with vyomairit AI"
         // The window is hidden with opacity + pointer-events, not display:none,
         // so while closed its input and buttons stayed in the tab order inside
         // an aria-hidden container — keyboard users landed in an invisible
@@ -131,7 +131,7 @@ const ChatBot = () => {
             </div>
             <div>
               <p className="font-semibold text-sm text-[rgb(var(--ink-rgb))] leading-tight">
-                Ask Alkairis
+                Ask vyomairit
               </p>
               <p
                 className="text-[10px] uppercase tracking-widest"
@@ -223,7 +223,7 @@ const ChatBot = () => {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={`chatbot-fab ${open ? "chatbot-fab-active" : ""}`}
-        aria-label={open ? "Close chat" : "Chat with Alkairis AI"}
+        aria-label={open ? "Close chat" : "Chat with vyomairit AI"}
         aria-expanded={open}
       >
         <span className="chatbot-fab-ring" aria-hidden="true" />

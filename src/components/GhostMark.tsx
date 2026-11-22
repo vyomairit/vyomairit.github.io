@@ -1,5 +1,5 @@
 // The ghost's silhouette: a dome, straight sides and three rounded legs. Shared
-// by the floating assistant and the small marks next to "ask.alkairis".
+// by the floating assistant and the small marks next to "ask.vyomairit".
 export const GHOST_BODY =
   "M8 30A24 24 0 0 1 56 30V62A5 5 0 0 1 46 62V60A4.5 4.5 0 0 0 37 60V62A5 5 0 0 1 27 62V60A4.5 4.5 0 0 0 18 60V62A5 5 0 0 1 8 62Z";
 

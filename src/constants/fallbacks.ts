@@ -22,11 +22,11 @@ import type {
 // ─── About ──────────────────────────────────────────────────────────────────
 export const fallbackAbout: About = {
   photo: asset('dsr.webp'),
-  headline: 'Data Engineer + AI Engineer · AWS & GCP',
+  headline: 'AI Engineer + Data Engineer · AWS & GCP',
   bio: [
-    "I'm Deepak Singh Rajput — a data engineer and AI engineer based in India, with 4+ years building cloud data platforms and production-grade Generative AI systems.",
-    'At Impetus Technologies I ship RAG pipelines and agentic LLM workflows with LangChain and LangGraph, and migrate large-scale on-prem data workloads to AWS and Google Cloud (BigQuery, Dataproc, Cloud Composer). I work end to end — Python, FastAPI and TypeScript on the backend, React on the front.',
-    "I'm GCP Generative AI Leader certified and always happy to talk about AI systems, data engineering, and scalable cloud architecture.",
+    "I'm Deepak Singh Rajput — an AI engineer based in India, with 4+ years building production-grade Generative AI systems.",
+    'At Impetus Technologies I ship RAG pipelines and agentic LLM workflows with LangChain and LangGraph. My data engineering background — cloud platforms on BigQuery and Dataproc, plus large-scale migrations to AWS and Google Cloud — gives those AI systems a reliable foundation. I work end to end — Python, FastAPI and TypeScript on the backend, React on the front.',
+    "I'm GCP Generative AI Leader certified and always happy to talk about AI systems, RAG and agentic workflows, with data engineering and cloud architecture as the foundation.",
   ].join('\n\n'),
   location: 'India',
   highlights: [
@@ -241,7 +241,7 @@ export const fallbackProjects: Project[] = [
     name: 'This portfolio',
     description:
       'A React front end over a FastAPI CMS with JWT auth, bundled fallbacks for API cold starts, and a ghost that answers questions about my work through an LLM.',
-    github_url: 'https://github.com/alkairis/alkairis.github.io',
+    github_url: 'https://github.com/vyomairit/vyomairit.github.io',
     demo_url: '',
     technologies: ['TypeScript', 'React', 'Vite', 'FastAPI', 'JWT'],
     image_url: [],

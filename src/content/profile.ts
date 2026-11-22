@@ -8,18 +8,18 @@
 export const profile = {
   name: "Deepak Singh Rajput",
   firstName: "Deepak",
-  handle: "alkairis",
-  role: "Data Engineer + AI Engineer",
-  focus: "Data engineering · Generative AI · RAG · Agentic systems",
+  handle: "vyomairit",
+  role: "AI Engineer + Data Engineer",
+  focus: "Generative AI · RAG · Agentic systems · Data engineering",
   company: "Impetus Technologies",
   location: "India",
   workModel: "Hybrid",
   timezone: "IST · UTC+5:30",
-  availability: "Open to senior data & AI engineering roles",
+  availability: "Open to senior AI & data engineering roles",
   availabilityDetail: "Based in India · hybrid work · IST overlap with EU and US mornings",
   /** Headline credential, shown wherever there's room for exactly one. */
   credential: "GCP Generative AI Leader certified",
-  repoUrl: "https://github.com/alkairis/alkairis.github.io",
+  repoUrl: "https://github.com/vyomairit/vyomairit.github.io",
 } as const;
 
 export type ProfileLink = {
@@ -34,10 +34,10 @@ export type ProfileLink = {
  * shown when the CMS provides it.
  */
 export const fallbackLinks: ProfileLink[] = [
-  { id: "github", label: "GitHub", url: "https://github.com/alkairis" },
-  { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/alkairis/" },
-  { id: "medium", label: "Medium", url: "https://alkairis.medium.com" },
-  { id: "x", label: "X", url: "https://x.com/alkairis_" },
+  { id: "github", label: "GitHub", url: "https://github.com/vyomairit" },
+  { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/vyomairit/" },
+  { id: "medium", label: "Medium", url: "https://vyomairit.medium.com" },
+  { id: "x", label: "X", url: "https://x.com/vyomairit_" },
 ];
 
 /** Recruiter-style questions the hero console demos and the ghost suggests. */

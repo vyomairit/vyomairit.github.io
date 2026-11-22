@@ -1,13 +1,13 @@
 <div align="center">
 
-<img src="assets/banner.png" alt="Deepak Singh Rajput — Data Engineer + AI Engineer" width="100%" />
+<img src="assets/banner.png" alt="Deepak Singh Rajput — AI Engineer + Data Engineer" width="100%" />
 
 <br/>
 
-[![Live](https://img.shields.io/badge/🌐_Live-alkairis.github.io-4cc9f0?style=for-the-badge&labelColor=0f172a)](https://alkairis.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-alkairis-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0f172a)](https://www.linkedin.com/in/alkairis/)
-[![Medium](https://img.shields.io/badge/Medium-@alkairis-white?style=for-the-badge&logo=medium&logoColor=black&labelColor=0f172a)](https://alkairis.medium.com)
-[![X](https://img.shields.io/badge/X-@alkairis__-white?style=for-the-badge&logo=x&logoColor=white&labelColor=0f172a)](https://x.com/alkairis_)
+[![Live](https://img.shields.io/badge/🌐_Live-vyomairit.github.io-4cc9f0?style=for-the-badge&labelColor=0f172a)](https://vyomairit.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-vyomairit-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0f172a)](https://www.linkedin.com/in/vyomairit/)
+[![Medium](https://img.shields.io/badge/Medium-@vyomairit-white?style=for-the-badge&logo=medium&logoColor=black&labelColor=0f172a)](https://vyomairit.medium.com)
+[![X](https://img.shields.io/badge/X-@vyomairit__-white?style=for-the-badge&logo=x&logoColor=white&labelColor=0f172a)](https://x.com/vyomairit_)
 
 <br/>
 
@@ -19,9 +19,9 @@
 
 ## 🧠 whoami
 
-**Deepak Singh Rajput** — Data Engineer + AI Engineer, India (hybrid) · IST (UTC+5:30).
+**Deepak Singh Rajput** — AI Engineer + Data Engineer, India (hybrid) · IST (UTC+5:30).
 
-Four-plus years at [Impetus Technologies](https://www.impetus.com/) building cloud data platforms on BigQuery and Dataproc, and the **production** Generative AI that runs on them — retrieval pipelines that stay accurate on real corpora and agentic LLM workflows that don't fall over on the third tool call. **GCP Generative AI Leader certified.**
+Four-plus years at [Impetus Technologies](https://www.impetus.com/) shipping **production Generative AI** — retrieval pipelines that stay accurate on real corpora and agentic LLM workflows that don't fall over on the third tool call. Cloud data platforms on BigQuery and Dataproc provide the foundation. **GCP Generative AI Leader certified.**
 
 The parts I care about: grounding retrieval so it actually retrieves, keeping agent graphs debuggable, and the unglamorous cost/latency/reliability work that decides whether an LLM feature survives contact with production.
 
@@ -113,7 +113,7 @@ Content-Type: application/json
   "message": "And is he open to relocating?",
   "history": [
     { "role": "user", "content": "Is he open to new roles?" },
-    { "role": "assistant", "content": "Yes. Open to senior data & AI engineering roles. …" }
+    { "role": "assistant", "content": "Yes. Open to senior AI & data engineering roles. …" }
   ]
 }
 ```
@@ -121,7 +121,7 @@ Content-Type: application/json
 The reply can be JSON with the answer under any of `reply`, `answer`, `message`, `response`, `output` or `text`, or a plain-text body:
 
 ```json
-{ "reply": "Yes, Deepak is open to senior data and AI engineering roles…" }
+{ "reply": "Yes, Deepak is open to senior AI and data engineering roles…" }
 ```
 
 - **Timeout**: requests time out after 45 s.
@@ -135,8 +135,8 @@ The reply can be JSON with the answer under any of `reply`, `answer`, `message`,
 ## 🚀 Running it locally
 
 ```bash
-git clone https://github.com/alkairis/alkairis.github.io.git
-cd alkairis.github.io
+git clone https://github.com/vyomairit/vyomairit.github.io.git
+cd vyomairit.github.io
 npm install
 npm run dev          # http://localhost:5173
 ```
@@ -194,7 +194,7 @@ src/
 
 **Built with ☕ and too many `console.log`s**
 
-[![alkairis.github.io](https://img.shields.io/badge/alkairis.github.io-0f172a?style=for-the-badge&logo=github&logoColor=4cc9f0)](https://alkairis.github.io)
+[![vyomairit.github.io](https://img.shields.io/badge/vyomairit.github.io-0f172a?style=for-the-badge&logo=github&logoColor=4cc9f0)](https://vyomairit.github.io)
 
 *If this was useful, a ⭐ goes a long way.*
 

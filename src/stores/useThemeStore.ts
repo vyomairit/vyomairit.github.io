@@ -4,7 +4,7 @@ export type Theme = 'light' | 'dark';
 
 // Shared with the boot script in index.html, which applies the theme before
 // first paint so a dark-mode visitor never sees a light flash.
-const STORAGE_KEY = 'alkairis-theme';
+const STORAGE_KEY = 'vyomairit-theme';
 
 // Browser-chrome colour on mobile; matches --bg-rgb for each theme.
 const THEME_COLOR: Record<Theme, string> = {

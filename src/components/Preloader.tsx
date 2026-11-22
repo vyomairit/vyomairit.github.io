@@ -5,7 +5,7 @@ import { useScrollLock } from "../hooks/useScrollLock";
 import { GHOST_BODY } from "./GhostMark";
 import "./preloader.css";
 
-const SEEN_KEY = "alkairis-preloader-seen";
+const SEEN_KEY = "vyomairit-preloader-seen";
 const CHUNKS = 24;
 const MIN_MS = 1500; // long enough to read the name, short enough not to annoy
 const MAX_MS = 3200; // never hold the page hostage to a slow font or API
@@ -108,7 +108,7 @@ const Preloader = () => {
           ))}
         </p>
         <p className="pl-role">
-          Data Engineer + <span className="serif">AI Engineer</span>
+          <span className="serif">AI Engineer</span> + Data Engineer
         </p>
 
         <div className="pl-meter" aria-hidden="true">

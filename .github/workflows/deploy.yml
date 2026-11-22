@@ -8,7 +8,7 @@ name: Deploy to GitHub Pages
 # project URL. One repository variable controls which:
 #
 #   CUSTOM_DOMAIN (Settings → Secrets and variables → Actions → Variables)
-#     - set to e.g. "alkairis.com": build uses base "/", and a matching CNAME
+#     - set to e.g. "vyomairit.com": build uses base "/", and a matching CNAME
 #       file is written so GitHub Pages serves the site at that domain.
 #     - empty/unset: build uses base "/<repo>/" and the site works at
 #       https://<user>.github.io/<repo>/ with no CNAME.

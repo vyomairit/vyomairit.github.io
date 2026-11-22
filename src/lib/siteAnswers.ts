@@ -26,7 +26,7 @@ const firstSentence = (text: string, max = 200) => {
 const joinWords = (items: string[]) =>
   items.length <= 1 ? (items[0] ?? "") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 
-/** "Data Engineer + AI Engineer" → "data engineer and AI engineer" (acronyms stay). */
+/** "AI Engineer + Data Engineer" → "AI engineer and data engineer" (acronyms stay). */
 const inSentence = (text: string) =>
   text
     .split(/\s+/)

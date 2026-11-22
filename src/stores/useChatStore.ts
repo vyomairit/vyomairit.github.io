@@ -49,7 +49,7 @@ export const useChatStore = create<ChatStore>()(
       clear: () => set({ turns: [] }),
     }),
     {
-      name: "alkairis-ghost-chat",
+      name: "vyomairit-ghost-chat",
       version: 1,
       storage: createJSONStorage(() => sessionStorage),
       partialize: (s) => ({ turns: s.turns.filter((t) => t.status !== "loading").slice(-KEEP_TURNS) }),

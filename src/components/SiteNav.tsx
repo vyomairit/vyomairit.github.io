@@ -88,7 +88,7 @@ const SiteNav = () => {
           <GhostMark className="nav-ghost" />
           <span className="nav-name">
             Deepak Singh Rajput
-            <span className="nav-role mono">Data + AI engineer</span>
+            <span className="nav-role mono">AI + Data engineer</span>
           </span>
         </Link>
 

@@ -3,7 +3,7 @@ import { useAssistantStore } from "../stores/useAssistantStore";
 import { useEyeTracking } from "../hooks/useEyeTracking";
 import { GHOST_BODY } from "./GhostMark";
 
-const HINT_KEY = "alkairis-ghost-hint";
+const HINT_KEY = "vyomairit-ghost-hint";
 
 /**
  * The floating assistant in the bottom corner. It bobs in place, leans toward

@@ -79,7 +79,7 @@ const Resume = () => {
               {" "}
               ·{" "}
             </span>
-            <span>Cloud data platforms, and the RAG pipelines and agentic systems built on them.</span>
+            <span>Generative AI, RAG and agentic systems, grounded in reliable cloud data platforms.</span>
           </p>
 
           <div className="rs-summary" data-reveal style={delay(3)}>
@@ -266,7 +266,7 @@ const Resume = () => {
         </Block>
 
         <p className="rs-print-foot mono">
-          Live version with case studies and architecture diagrams: alkairis.github.io
+          Live version with case studies and architecture diagrams: vyomairit.github.io
         </p>
       </article>
 

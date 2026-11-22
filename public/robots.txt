@@ -1,4 +1,4 @@
-# https://alkairis.github.io
+# https://vyomairit.github.io
 #
 # Deliberately does not list /sign-me or /admin-me. They are unlinked
 # client-side routes, so a crawler has no way to reach them — naming them
@@ -7,4 +7,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alkairis.github.io/sitemap.xml
+Sitemap: https://vyomairit.github.io/sitemap.xml

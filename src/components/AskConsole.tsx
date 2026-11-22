@@ -95,7 +95,7 @@ const AskConsole = () => {
     <div ref={rootRef} className="console" aria-label="Ask about Deepak's work">
       <div className="console-bar">
         <GhostMark className="console-ghost" />
-        <span className="mono console-name">ask.alkairis</span>
+        <span className="mono console-name">ask.vyomairit</span>
         {asked && (
           <button type="button" className="chat-clear mono" onClick={clear}>
             Clear

@@ -19,7 +19,7 @@ const Hero = () => {
     { value: `${years}+`, label: "years shipping production AI & cloud systems" },
     { value: String(certificates.length), label: "certifications, incl. GCP Generative AI Leader" },
     { value: String(achievements.length), label: "awards & recognitions at Impetus" },
-    { value: "Data platforms · RAG · Agents", label: "where I'm most useful", wide: true },
+    { value: "RAG · Agents · Data platforms", label: "where I'm most useful", wide: true },
   ];
 
   return (
@@ -37,13 +37,13 @@ const Hero = () => {
           </p>
 
           <h1 className="hero-title" data-reveal style={delay(1)}>
-            Data &amp; AI systems, <span className="serif accent-text">built to hold&nbsp;up.</span>
+            AI &amp; data systems, <span className="serif accent-text">built to hold&nbsp;up.</span>
           </h1>
 
           <p className="hero-lead" data-reveal style={delay(2)}>
-            I'm {profile.name}, a data engineer and AI engineer at {profile.company}. I build cloud data
-            platforms on BigQuery and Dataproc, and on top of them, RAG pipelines that actually retrieve and
-            LangGraph agents that survive the third tool call.
+            I'm {profile.name}, an AI engineer at {profile.company}. I build production RAG pipelines that
+            actually retrieve and LangGraph agents that survive the third tool call, grounded in reliable
+            cloud data platforms on BigQuery and Dataproc.
           </p>
 
           <div className="hero-ctas" data-reveal style={delay(3)}>
