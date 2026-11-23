@@ -605,7 +605,7 @@
 }
 
 .ghost-mark .peek-rise {
-  transition: transform 0.4s var(--ease);
+  transition: translate 0.4s var(--ease);
 }
 
 @keyframes peek-breathe {
@@ -718,13 +718,14 @@
    to look over; on click it ducks and pops back up. */
 .ghost .peek-rise {
   animation: peek-breathe 3.2s ease-in-out infinite;
-  transition: transform 0.4s var(--ease);
+  transition: translate 0.4s var(--ease);
 }
 
+/* `translate` adds to the breathing animation instead of replacing it, so
+   the lift glides in and out without a snap. */
 .ghost:hover .peek-rise,
 .ghost-dock.is-open .peek-rise {
-  animation: none;
-  transform: translateY(-4px);
+  translate: 0 -4px;
 }
 
 .ghost.is-popping .peek-rise {
