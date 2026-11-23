@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <title>Deepak Singh Rajput — ghost mark</title>
+  <title>Deepak Singh Rajput — Peekaboo ghost mark</title>
   <defs>
     <radialGradient id="bg" cx="32%" cy="24%" r="92%">
       <stop offset="0" stop-color="#5A1AA6"/>
@@ -23,10 +23,15 @@
   <rect x="3" y="3" width="506" height="506" rx="113" fill="none" stroke="url(#rim)" stroke-width="3"/>
   <circle cx="256" cy="262" r="150" fill="url(#halo)"/>
   <circle cx="256" cy="262" r="172" fill="none" stroke="#00E5FF" stroke-opacity=".55" stroke-width="5" stroke-dasharray="2 20" stroke-linecap="round"/>
-  <g transform="translate(123.2 116.7) scale(4.15)" opacity=".45" filter="url(#soft)"><path d="M8 30A24 24 0 0 1 56 30V62A5 5 0 0 1 46 62V60A4.5 4.5 0 0 0 37 60V62A5 5 0 0 1 27 62V60A4.5 4.5 0 0 0 18 60V62A5 5 0 0 1 8 62Z" fill="#000"/></g><g transform="translate(123.2 110.5) scale(4.15)">
-    <path d="M8 30A24 24 0 0 1 56 30V62A5 5 0 0 1 46 62V60A4.5 4.5 0 0 0 37 60V62A5 5 0 0 1 27 62V60A4.5 4.5 0 0 0 18 60V62A5 5 0 0 1 8 62Z" fill="#F4F1FA"/>
-    <ellipse cx="24" cy="33" rx="3.4" ry="4.2" fill="#050505"/>
-    <ellipse cx="40" cy="33" rx="3.4" ry="4.2" fill="#050505"/>
+  <ellipse cx="256.0" cy="369.90000000000003" rx="120.35000000000001" ry="13.280000000000001" fill="#000" opacity=".45" filter="url(#soft)"/>
+  <g transform="translate(123.2 104.3) scale(4.15)">
+    <clipPath id="ph"><rect width="64" height="56"/></clipPath>
+    <path d="M12 57V34A20 20 0 0 1 52 34V57Z" fill="#F4F1FA" clip-path="url(#ph)"/>
+    <ellipse cx="25.5" cy="37" rx="3.1" ry="3.9" fill="#050505"/>
+    <ellipse cx="38.5" cy="37" rx="3.1" ry="3.9" fill="#050505"/>
+    <rect x="3" y="51" width="58" height="11" rx="5.5" fill="#00E5FF"/>
+    <circle cx="18" cy="51" r="4.6" fill="#F4F1FA"/>
+    <circle cx="46" cy="51" r="4.6" fill="#F4F1FA"/>
   </g>
   <circle cx="391.5" cy="156.1" r="15" fill="#00E5FF" filter="url(#glow)" opacity=".9"/>
   <circle cx="391.5" cy="156.1" r="9" fill="#E8FDFF"/>
