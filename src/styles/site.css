@@ -40,7 +40,7 @@
 }
 
 .nav-brand:hover .nav-ghost .peek-rise {
-  transform: translateY(-3px);
+  translate: 0 -3px;
 }
 
 .nav-name {
@@ -1385,28 +1385,22 @@ button.project-thumb {
   animation-direction: reverse;
 }
 
-.brand-art:hover .ba-orbit {
-  animation-duration: 16s;
-}
-
-.brand-art:hover .ba-orbit--inner {
-  animation-duration: 24s;
-}
-
 @keyframes ba-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
+/* Hover lifts the ghost with `translate`, which adds to the breathing
+   animation's transform instead of replacing it, so nothing snaps. */
 .brand-art .peek-rise {
   animation: peek-breathe 4s ease-in-out infinite;
+  transition: translate 0.45s var(--ease);
 }
 
-.brand-art:hover .peek-rise {
-  animation: none;
-  transform: translateY(-4px);
-  transition: transform 0.4s var(--ease);
+.brand-art:hover .peek-rise,
+.brand-art:focus-visible .peek-rise {
+  translate: 0 -4px;
 }
 
 .brand-art .peek-head,

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import type { PointerEvent } from "react";
 import { useEyeTracking } from "../hooks/useEyeTracking";
 import { useAssistantStore } from "../stores/useAssistantStore";
 import { PeekGhostShapes } from "./GhostMark";
@@ -19,12 +20,23 @@ const BrandArt = () => {
   // eyeLine: the ghost's eyes sit about 47% of the way down the panel.
   useEyeTracking(ref, { reach: 3.6, tilt: 0, eyeLine: 0.47 });
 
+  // Hover speeds the orbits up. Changing animation-duration in CSS would make
+  // the rings jump to a new angle, so the running animations' playback rate
+  // is eased instead and they carry on from where they are.
+  const setOrbitSpeed = (e: PointerEvent<HTMLButtonElement>, rate: number) => {
+    e.currentTarget.querySelectorAll(".ba-orbit").forEach((ring) =>
+      ring.getAnimations().forEach((a) => a.updatePlaybackRate(rate)),
+    );
+  };
+
   return (
     <button
       ref={ref}
       type="button"
       className="brand-art"
       onClick={() => openMenu()}
+      onPointerEnter={(e) => setOrbitSpeed(e, 3)}
+      onPointerLeave={(e) => setOrbitSpeed(e, 1)}
       aria-label="Ask the ghost about Deepak"
     >
       <svg viewBox="0 0 400 500" aria-hidden="true" focusable="false">
