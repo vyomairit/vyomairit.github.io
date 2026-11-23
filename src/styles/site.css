@@ -985,9 +985,9 @@ button.project-thumb {
 /* ── Project details modal (ProjectModal) ───────────────────────────────── */
 
 .pm {
-  width: min(960px, calc(100vw - 32px));
+  width: min(1080px, calc(100vw - 32px));
   max-width: none;
-  max-height: calc(100dvh - 48px);
+  max-height: calc(100dvh - 32px);
   margin: auto;
   padding: 0;
   border: 1px solid rgb(var(--line));
@@ -1039,7 +1039,7 @@ button.project-thumb {
 /* The content scrolls here, under the fixed close button; its native
    scrollbar is replaced by .pm-rail, styled like the page's ScrollRail. */
 .pm-scroll {
-  max-height: calc(100dvh - 50px);
+  max-height: calc(100dvh - 34px);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
@@ -1163,7 +1163,7 @@ button.project-thumb {
   min-width: 0;
   min-height: 0;
   max-width: 100%;
-  max-height: min(46dvh, 460px);
+  max-height: min(68dvh, 640px);
   object-fit: contain;
   border-radius: 8px;
   animation: pm-fade 0.25s ease;
@@ -1302,7 +1302,7 @@ button.project-thumb {
   }
 
   .pm-stage img {
-    max-height: 40dvh;
+    max-height: 52dvh;
   }
 
   .pm-nav {
