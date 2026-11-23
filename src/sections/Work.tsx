@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import ProjectGallery from "../components/ProjectGallery";
+import ProjectModal from "../components/ProjectModal";
 import SectionHead from "../components/SectionHead";
 import { ArrowDown, ArrowUpRight } from "../components/Icons";
 import { FEATURED_COUNT, useSiteData } from "../hooks/useSiteData";
@@ -36,14 +37,15 @@ const StackPlate = ({ project }: { project: Project }) => (
   </div>
 );
 
-const ProjectCard = ({ project, n }: { project: Project; n: number }) => {
+type CardProps = { project: Project; n: number; onOpen: (index: number) => void };
+
+const ProjectCard = ({ project, n, onOpen }: CardProps) => {
   const [open, setOpen] = useState(false);
   const description = project.description?.trim() ?? "";
   const long = description.length > CLAMP_AT;
   const paragraphs = description.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
   const code = usable(project.github_url) ? project.github_url : null;
   const demo = usable(project.demo_url) ? project.demo_url : null;
-  const coverLink = demo ?? code;
 
   return (
     <article
@@ -64,7 +66,11 @@ const ProjectCard = ({ project, n }: { project: Project; n: number }) => {
               </>
             )}
           </p>
-          <h3 className="case-title">{project.name}</h3>
+          <h3 className="case-title">
+            <button type="button" className="case-title-btn" onClick={() => onOpen(0)}>
+              {project.name}
+            </button>
+          </h3>
 
           <div id={`project-${project.id}-desc`} className={`case-desc${long && !open ? " is-clamped" : ""}`}>
             {paragraphs.map((p, i) => (
@@ -113,7 +119,7 @@ const ProjectCard = ({ project, n }: { project: Project; n: number }) => {
             <ProjectGallery
               images={project.image_url}
               name={project.name}
-              href={coverLink}
+              onOpen={onOpen}
               fallback={<StackPlate project={project} />}
             />
           </div>
@@ -125,6 +131,7 @@ const ProjectCard = ({ project, n }: { project: Project; n: number }) => {
 
 const Work = () => {
   const { featured, projectsLoading } = useSiteData();
+  const [active, setActive] = useState<{ project: Project; index: number } | null>(null);
 
   return (
     <section id="work" className="section" aria-labelledby="work-title">
@@ -151,7 +158,14 @@ const Work = () => {
               ? Array.from({ length: FEATURED_COUNT }, (_, i) => (
                   <div key={i} className="skeleton case-skeleton" />
                 ))
-              : featured.map((project, i) => <ProjectCard key={project.id} project={project} n={i + 1} />)}
+              : featured.map((project, i) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    n={i + 1}
+                    onOpen={(index) => setActive({ project, index })}
+                  />
+                ))}
           </div>
           <div className="hs-ui container" aria-hidden="true">
             <span className="hs-bar">
@@ -161,6 +175,8 @@ const Work = () => {
           </div>
         </div>
       </div>
+
+      <ProjectModal project={active?.project ?? null} startIndex={active?.index ?? 0} onClose={() => setActive(null)} />
     </section>
   );
 };
