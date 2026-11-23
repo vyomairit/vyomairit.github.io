@@ -985,9 +985,9 @@ button.project-thumb {
 /* ── Project details modal (ProjectModal) ───────────────────────────────── */
 
 .pm {
-  width: min(1080px, calc(100vw - 32px));
+  width: min(960px, calc(100vw - 32px));
   max-width: none;
-  max-height: calc(100dvh - 32px);
+  max-height: calc(100dvh - 48px);
   margin: auto;
   padding: 0;
   border: 1px solid rgb(var(--line));
@@ -995,8 +995,7 @@ button.project-thumb {
   background: rgb(var(--card));
   color: rgb(var(--ink));
   box-shadow: var(--shadow-lg);
-  overflow: auto;
-  overscroll-behavior: contain;
+  overflow: hidden;
 }
 
 .pm::backdrop {
@@ -1037,15 +1036,87 @@ button.project-thumb {
   position: relative;
 }
 
+/* The content scrolls here, under the fixed close button; its native
+   scrollbar is replaced by .pm-rail, styled like the page's ScrollRail. */
+.pm-scroll {
+  max-height: calc(100dvh - 50px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.pm-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+.pm-rail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 14px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.pm-rail[hidden] {
+  display: none;
+}
+
+.pm-rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 3px;
+  bottom: 0;
+  width: 2px;
+  background: rgb(var(--line) / 0.6);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.pm-rail:hover::before,
+.pm-rail.is-dragging::before {
+  opacity: 1;
+}
+
+.pm-rail i {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  width: 2px;
+  height: var(--thumb, 40px);
+  border-radius: 3px;
+  background: rgb(var(--accent));
+  box-shadow: 0 0 10px rgb(var(--accent) / 0.6);
+  transform: translateY(var(--y, 0));
+  transition: width 0.18s ease, right 0.18s ease;
+}
+
+.pm-rail:hover i,
+.pm-rail.is-dragging i {
+  right: 2px;
+  width: 5px;
+}
+
+@media (hover: none) {
+  .pm-rail {
+    width: 4px;
+    pointer-events: none;
+  }
+}
+
 .pm-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 18px;
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   padding: 0;
   border: 1px solid rgb(255 255 255 / 0.22);
   border-radius: 50%;
@@ -1053,7 +1124,7 @@ button.project-thumb {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #fff;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 1;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -1083,8 +1154,7 @@ button.project-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: min(68dvh, 640px);
-  padding: 16px 64px;
+  padding: 12px 56px;
 }
 
 .pm-stage img {
@@ -1093,7 +1163,7 @@ button.project-thumb {
   min-width: 0;
   min-height: 0;
   max-width: 100%;
-  max-height: 100%;
+  max-height: min(46dvh, 460px);
   object-fit: contain;
   border-radius: 8px;
   animation: pm-fade 0.25s ease;
@@ -1124,15 +1194,15 @@ button.project-thumb {
 
 .pm-thumbs {
   display: flex;
-  gap: 8px;
-  padding: 0 16px 16px;
+  gap: 6px;
+  padding: 0 12px 12px;
   overflow-x: auto;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
 
 .pm-thumb {
   flex: 0 0 auto;
-  width: 88px;
+  width: 64px;
   aspect-ratio: 16 / 10;
   padding: 0;
   border: 2px solid transparent;
@@ -1161,11 +1231,11 @@ button.project-thumb {
 }
 
 .pm-body {
-  padding: clamp(20px, 4vw, 36px);
+  padding: clamp(16px, 2.5vw, 24px) clamp(16px, 3vw, 28px);
 }
 
 /* No screenshots: keep the title clear of the close button. */
-.pm-panel > .pm-body:first-of-type {
+.pm-scroll > .pm-body:first-child {
   padding-right: 64px;
 }
 
@@ -1176,8 +1246,8 @@ button.project-thumb {
 }
 
 .pm-title {
-  margin-top: 8px;
-  font-size: clamp(24px, 3vw, 34px);
+  margin-top: 4px;
+  font-size: clamp(22px, 2.6vw, 28px);
   font-weight: 620;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -1186,25 +1256,25 @@ button.project-thumb {
 
 .pm-desc {
   display: grid;
-  gap: 12px;
-  margin-top: 18px;
-  padding-top: 18px;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px solid rgb(var(--line));
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.65;
   color: rgb(var(--ink-2));
   text-wrap: pretty;
 }
 
 .pm-chips {
-  margin-top: 22px;
+  margin-top: 14px;
 }
 
 .pm-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .pm-actions svg {
@@ -1218,9 +1288,21 @@ button.project-thumb {
     max-height: calc(100dvh - 16px);
   }
 
+  .pm-scroll {
+    max-height: calc(100dvh - 18px);
+  }
+
   .pm-stage {
-    height: min(52dvh, 420px);
-    padding: 12px 8px 44px;
+    padding: 8px;
+  }
+
+  /* Room under the image for the arrows and counter. */
+  .pm-stage--multi {
+    padding-bottom: 48px;
+  }
+
+  .pm-stage img {
+    max-height: 40dvh;
   }
 
   .pm-nav {
