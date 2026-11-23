@@ -1110,13 +1110,13 @@ button.project-thumb {
 
 .pm-close {
   position: absolute;
-  top: 10px;
-  right: 18px;
+  top: 12px;
+  right: 16px;
   z-index: 2;
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 1px solid rgb(255 255 255 / 0.22);
   border-radius: 50%;
@@ -1124,7 +1124,7 @@ button.project-thumb {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #fff;
-  font-size: 21px;
+  font-size: 24px;
   line-height: 1;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -1154,7 +1154,8 @@ button.project-thumb {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 56px;
+  height: min(68dvh, 640px);
+  padding: 16px 64px;
 }
 
 .pm-stage img {
@@ -1163,7 +1164,7 @@ button.project-thumb {
   min-width: 0;
   min-height: 0;
   max-width: 100%;
-  max-height: min(68dvh, 640px);
+  max-height: 100%;
   object-fit: contain;
   border-radius: 8px;
   animation: pm-fade 0.25s ease;
@@ -1194,15 +1195,15 @@ button.project-thumb {
 
 .pm-thumbs {
   display: flex;
-  gap: 6px;
-  padding: 0 12px 12px;
+  gap: 8px;
+  padding: 0 16px 16px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
 .pm-thumb {
   flex: 0 0 auto;
-  width: 64px;
+  width: 88px;
   aspect-ratio: 16 / 10;
   padding: 0;
   border: 2px solid transparent;
@@ -1231,7 +1232,7 @@ button.project-thumb {
 }
 
 .pm-body {
-  padding: clamp(16px, 2.5vw, 24px) clamp(16px, 3vw, 28px);
+  padding: clamp(20px, 4vw, 36px);
 }
 
 /* No screenshots: keep the title clear of the close button. */
@@ -1246,8 +1247,8 @@ button.project-thumb {
 }
 
 .pm-title {
-  margin-top: 4px;
-  font-size: clamp(22px, 2.6vw, 28px);
+  margin-top: 8px;
+  font-size: clamp(24px, 3vw, 34px);
   font-weight: 620;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -1256,25 +1257,25 @@ button.project-thumb {
 
 .pm-desc {
   display: grid;
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 12px;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid rgb(var(--line));
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
   color: rgb(var(--ink-2));
   text-wrap: pretty;
 }
 
 .pm-chips {
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .pm-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .pm-actions svg {
@@ -1293,16 +1294,13 @@ button.project-thumb {
   }
 
   .pm-stage {
-    padding: 8px;
+    height: min(52dvh, 420px);
+    padding: 12px 8px;
   }
 
   /* Room under the image for the arrows and counter. */
   .pm-stage--multi {
-    padding-bottom: 48px;
-  }
-
-  .pm-stage img {
-    max-height: 52dvh;
+    padding-bottom: 44px;
   }
 
   .pm-nav {
