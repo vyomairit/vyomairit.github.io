@@ -1,7 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { ArrowUpRight } from "../components/Icons";
+import { useState } from "react";
+import ProjectModal from "../components/ProjectModal";
 import { useSiteData } from "../hooks/useSiteData";
+import type { Project } from "../api/api";
 
 const usable = (url: string) => /^https?:\/\//.test(url ?? "");
 
@@ -12,6 +15,7 @@ const usable = (url: string) => /^https?:\/\//.test(url ?? "");
  */
 const Projects = () => {
   const { moreProjects: projects } = useSiteData();
+  const [active, setActive] = useState<Project | null>(null);
   if (projects.length === 0) return null;
 
   return (
@@ -23,19 +27,37 @@ const Projects = () => {
 
       <ul className="project-list">
         {projects.map((p) => (
-          <li key={p.id} className={`project${p.image_url.length ? "" : " project--plain"}`} data-reveal>
+          <li
+            key={p.id}
+            className={`project${p.image_url.length ? "" : " project--plain"}`}
+            data-reveal
+            // The whole row opens the details; the title button is the keyboard
+            // path, and the Code / Live links keep their own behaviour.
+            onClick={(e) => {
+              if (!(e.target as HTMLElement).closest("a, button")) setActive(p);
+            }}
+          >
             {p.image_url[0] && (
-              <div className="project-thumb">
+              <button
+                type="button"
+                className="project-thumb"
+                onClick={() => setActive(p)}
+                aria-label={`View ${p.name} details`}
+              >
                 <img src={p.image_url[0]} alt="" loading="lazy" />
                 {p.image_url.length > 1 && (
                   <span className="project-thumb-more mono" aria-label={`${p.image_url.length} screenshots`}>
                     +{p.image_url.length - 1}
                   </span>
                 )}
-              </div>
+              </button>
             )}
             <div className="project-body">
-              <h4>{p.name}</h4>
+              <h4>
+                <button type="button" className="project-title-btn" onClick={() => setActive(p)}>
+                  {p.name}
+                </button>
+              </h4>
               <p>{p.description}</p>
               <div className="chips">
                 {p.technologies.slice(0, 6).map((t) => (
@@ -60,6 +82,8 @@ const Projects = () => {
           </li>
         ))}
       </ul>
+
+      <ProjectModal project={active} onClose={() => setActive(null)} />
     </div>
   );
 };

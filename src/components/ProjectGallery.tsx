@@ -5,8 +5,8 @@ import { ArrowRight } from "./Icons";
 type ProjectGalleryProps = {
   images: string[];
   name: string;
-  /** Where a click on an image goes (demo, else code); none means not a link. */
-  href: string | null;
+  /** Called with the clicked image's index (0 for the fallback) to open details. */
+  onOpen: (index: number) => void;
   /** Shown instead when there are no images. */
   fallback: ReactNode;
 };
@@ -15,21 +15,19 @@ type ProjectGalleryProps = {
  * A project's screenshots. One image is a plain cover; several become a
  * swipeable strip (native horizontal scroll with snap points, so touch, a
  * trackpad and shift+wheel all work) with arrows, dots and a counter.
- * Each image links to the project on its own, so the controls are never
- * nested inside a link.
+ * Each image is its own button that opens the project's details, so the
+ * controls are never nested inside it.
  */
-const ProjectGallery = ({ images, name, href, fallback }: ProjectGalleryProps) => {
+const ProjectGallery = ({ images, name, onOpen, fallback }: ProjectGalleryProps) => {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [index, setIndex] = useState(0);
   const count = images.length;
 
   if (!count) {
-    return href ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="gallery-link" aria-label={`Open ${name}`}>
+    return (
+      <button type="button" className="gallery-link" onClick={() => onOpen(0)} aria-label={`View ${name} details`}>
         {fallback}
-      </a>
-    ) : (
-      <>{fallback}</>
+      </button>
     );
   }
 
@@ -56,13 +54,17 @@ const ProjectGallery = ({ images, name, href, fallback }: ProjectGalleryProps) =
 
   const slide = (src: string, i: number) => {
     const alt = count > 1 ? `${name}: screenshot ${i + 1} of ${count}` : `${name}: preview`;
-    const img = <img src={src} alt={alt} loading="lazy" draggable={false} />;
-    return href ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="gallery-link" tabIndex={i === index ? 0 : -1}>
+    const img = <img src={src} alt="" loading="lazy" draggable={false} />;
+    return (
+      <button
+        type="button"
+        className="gallery-link"
+        onClick={() => onOpen(i)}
+        aria-label={`${alt}. View details`}
+        tabIndex={i === index ? 0 : -1}
+      >
         {img}
-      </a>
-    ) : (
-      img
+      </button>
     );
   };
 
