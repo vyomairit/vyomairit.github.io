@@ -65,9 +65,22 @@
 
 /* Two classes: the shared .ghost-svg rule (assistant.css) sets width: 100%. */
 .pl-orb .pl-ghost {
-  width: 30%;
-  animation: ghost-bob 3.2s ease-in-out infinite;
+  width: 34%;
   filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.45));
+}
+
+/* Peekaboo rises from behind its ledge, then breathes. */
+.pl-orb .peek-rise {
+  animation:
+    peek-in 1.4s var(--ease) 0.35s both,
+    peek-breathe 3.2s ease-in-out 1.75s infinite;
+}
+
+/* The orb is dark in both themes. */
+.pl-orb .peek-head,
+.pl-orb .peek-hand {
+  fill: #f4f1fa;
+  stroke: none;
 }
 
 @keyframes pl-orb-in {

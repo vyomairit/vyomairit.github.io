@@ -39,8 +39,8 @@
   transition: transform 0.4s var(--ease);
 }
 
-.nav-brand:hover .nav-ghost {
-  transform: translateY(-2px) rotate(-6deg);
+.nav-brand:hover .nav-ghost .peek-rise {
+  transform: translateY(-3px);
 }
 
 .nav-name {
@@ -1399,37 +1399,24 @@ button.project-thumb {
   }
 }
 
-.brand-art .ba-ghost {
-  animation: ba-bob 4s ease-in-out infinite;
+.brand-art .peek-rise {
+  animation: peek-breathe 4s ease-in-out infinite;
 }
 
-.brand-art .ghost-svg {
-  transform-box: fill-box;
-  transform-origin: 50% 60%;
-  filter: none;
+.brand-art:hover .peek-rise {
+  animation: none;
+  transform: translateY(-4px);
+  transition: transform 0.4s var(--ease);
 }
 
-.brand-art .ghost-eyes {
+.brand-art .peek-head,
+.brand-art .peek-hand {
+  fill: #f4f1fa;
+  stroke: none;
+}
+
+.brand-art .peek-eye {
   fill: #050505;
-}
-
-.brand-art .ba-shadow {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: ba-shadow 4s ease-in-out infinite;
-}
-
-@keyframes ba-bob {
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-@keyframes ba-shadow {
-  50% {
-    transform: scaleX(0.82);
-    opacity: 0.3;
-  }
 }
 
 .brand-art .ba-spark {
@@ -1481,8 +1468,7 @@ button.project-thumb {
 
 @media (prefers-reduced-motion: reduce) {
   .brand-art .ba-orbit,
-  .brand-art .ba-ghost,
-  .brand-art .ba-shadow,
+  .brand-art .peek-rise,
   .brand-art .ba-spark {
     animation: none;
   }

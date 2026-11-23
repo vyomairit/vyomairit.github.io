@@ -7,10 +7,14 @@
     </radialGradient>
   </defs>
   <rect width="64" height="64" rx="15" fill="url(#bg)"/>
-  <g transform="translate(13.5 9.2) scale(.58)">
-    <path d="M8 30A24 24 0 0 1 56 30V62A5 5 0 0 1 46 62V60A4.5 4.5 0 0 0 37 60V62A5 5 0 0 1 27 62V60A4.5 4.5 0 0 0 18 60V62A5 5 0 0 1 8 62Z" fill="#F4F1FA"/>
-    <ellipse cx="24" cy="33" rx="3.6" ry="4.6" fill="#050505"/>
-    <ellipse cx="40" cy="33" rx="3.6" ry="4.6" fill="#050505"/>
+  
+  <g transform="translate(5.4 3.6) scale(0.83)">
+    <clipPath id="ph"><rect width="64" height="56"/></clipPath>
+    <path d="M12 57V34A20 20 0 0 1 52 34V57Z" fill="#F4F1FA" clip-path="url(#ph)"/>
+    <ellipse cx="25.5" cy="37" rx="3.1" ry="3.9" fill="#050505"/>
+    <ellipse cx="38.5" cy="37" rx="3.1" ry="3.9" fill="#050505"/>
+    <rect x="3" y="51" width="58" height="11" rx="5.5" fill="#00E5FF"/>
+    <circle cx="18" cy="51" r="4.6" fill="#F4F1FA"/>
+    <circle cx="46" cy="51" r="4.6" fill="#F4F1FA"/>
   </g>
-  <circle cx="51" cy="13" r="4" fill="#00E5FF"/>
 </svg>

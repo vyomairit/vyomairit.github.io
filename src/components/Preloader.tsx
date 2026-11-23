@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { profile } from "../content/profile";
 import { useEyeTracking } from "../hooks/useEyeTracking";
 import { useScrollLock } from "../hooks/useScrollLock";
-import { GHOST_BODY } from "./GhostMark";
+import { PeekGhost } from "./GhostMark";
 import "./preloader.css";
 
 const SEEN_KEY = "vyomairit-preloader-seen";
@@ -35,7 +35,7 @@ const Preloader = () => {
   const orbRef = useRef<HTMLDivElement | null>(null);
 
   useScrollLock(phase !== "done");
-  useEyeTracking(orbRef, { reach: 6, tilt: 6, eyeLine: 0.48 });
+  useEyeTracking(orbRef, { reach: 3.6, tilt: 0, eyeLine: 0.48 });
 
   // Light the chunks over MIN_MS, then wait for fonts (capped) before leaving.
   useEffect(() => {
@@ -91,13 +91,7 @@ const Preloader = () => {
       <div className="pl-inner">
         <div ref={orbRef} className="pl-orb" aria-hidden="true">
           <span className="pl-ring" />
-          <svg className="pl-ghost ghost-svg" viewBox="0 0 64 72" focusable="false">
-            <path d={GHOST_BODY} className="ghost-body" />
-            <g className="ghost-eyes">
-              <ellipse cx="24" cy="33" rx="3.4" ry="4.2" />
-              <ellipse cx="40" cy="33" rx="3.4" ry="4.2" />
-            </g>
-          </svg>
+          <PeekGhost className="pl-ghost ghost-svg" />
         </div>
 
         <p className="pl-name">

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useEyeTracking } from "../hooks/useEyeTracking";
 import { useAssistantStore } from "../stores/useAssistantStore";
-import { GHOST_BODY } from "./GhostMark";
+import { PeekGhostShapes } from "./GhostMark";
 
 // Centre of the orbit and the ghost, in the 400 × 500 artboard.
 const CX = 200;
@@ -17,7 +17,7 @@ const BrandArt = () => {
   const ref = useRef<HTMLButtonElement | null>(null);
   const openMenu = useAssistantStore((s) => s.openMenu);
   // eyeLine: the ghost's eyes sit about 47% of the way down the panel.
-  useEyeTracking(ref, { reach: 5, tilt: 5, eyeLine: 0.47 });
+  useEyeTracking(ref, { reach: 3.6, tilt: 0, eyeLine: 0.47 });
 
   return (
     <button
@@ -83,16 +83,12 @@ const BrandArt = () => {
           <circle cx={CX - 112} cy={CY} r="4" fill="#B794F6" />
         </g>
 
-        {/* Ghost: shadow, then the bobbing body with tracking eyes. */}
-        <ellipse className="ba-shadow" cx={CX} cy={CY + 150} rx="62" ry="9" fill="#000" opacity=".45" filter="url(#ba-soft)" />
+        {/* Ghost: shadow, then Peekaboo with tracking eyes. */}
+        <ellipse className="ba-shadow" cx={CX} cy={CY + 128} rx="110" ry="10" fill="#000" opacity=".45" filter="url(#ba-soft)" />
         <g transform={`translate(${CX - 128} ${CY - 128}) scale(4)`}>
-          <g className="ba-ghost">
+          <g>
             <g className="ghost-svg">
-              <path d={GHOST_BODY} fill="#F4F1FA" />
-              <g className="ghost-eyes">
-                <ellipse cx="24" cy="33" rx="3.4" ry="4.2" />
-                <ellipse cx="40" cy="33" rx="3.4" ry="4.2" />
-              </g>
+              <PeekGhostShapes />
             </g>
           </g>
         </g>

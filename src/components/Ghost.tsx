@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { useAssistantStore } from "../stores/useAssistantStore";
 import { useEyeTracking } from "../hooks/useEyeTracking";
-import { GHOST_BODY } from "./GhostMark";
+import { PeekGhost } from "./GhostMark";
 
 const HINT_KEY = "vyomairit-ghost-hint";
 
 /**
- * The floating assistant in the bottom corner. It bobs in place, leans toward
- * the pointer and follows it with its eyes; clicking it (or ⌘K / Ctrl+K)
+ * The floating assistant in the bottom corner: Peekaboo, peeking over its
+ * ledge. It breathes in place and follows the pointer with its eyes in every
+ * direction; clicking it (or ⌘K / Ctrl+K) makes it duck and pop back up and
  * opens the AI menu. Tracking writes CSS variables (see useEyeTracking), so
  * it never re-renders React.
  */
@@ -17,8 +18,21 @@ const Ghost = () => {
   const rootRef = useRef<HTMLButtonElement | null>(null);
   const [hint, setHint] = useState(false);
 
-  // Eyes + lean follow the pointer (or finger, or scroll; wander when idle).
-  useEyeTracking(rootRef);
+  // Eyes (and a little of the face) follow the pointer in every direction,
+  // or the finger, or the scroll; it glances around when idle. No body lean:
+  // the ledge stays level.
+  useEyeTracking(rootRef, { reach: 3.6, tilt: 0, eyeLine: 0.46 });
+
+  // Clicking makes it duck behind the ledge and pop back up.
+  const onClick = () => {
+    const el = rootRef.current;
+    if (el) {
+      el.classList.remove("is-popping");
+      void el.offsetWidth; // restart the animation on repeated clicks
+      el.classList.add("is-popping");
+    }
+    toggleMenu();
+  };
 
   // Introduce itself once per session, a few seconds after the page settles.
   useEffect(() => {
@@ -67,7 +81,10 @@ const Ghost = () => {
         ref={rootRef}
         type="button"
         className="ghost"
-        onClick={toggleMenu}
+        onClick={onClick}
+        onAnimationEnd={(e) => {
+          if (e.animationName === "peek-pop") rootRef.current?.classList.remove("is-popping");
+        }}
         aria-label={open ? "Close the AI menu" : "Open the AI menu: ask about Deepak's work"}
         aria-expanded={open}
         aria-controls="ai-menu"
@@ -83,14 +100,7 @@ const Ghost = () => {
         </span>
 
         <span className="ghost-float" aria-hidden="true">
-          <svg className="ghost-svg" viewBox="0 0 64 72" focusable="false">
-            <path d={GHOST_BODY} className="ghost-body" />
-            <g className="ghost-eyes">
-              <ellipse cx="24" cy="33" rx="3.4" ry="4.2" />
-              <ellipse cx="40" cy="33" rx="3.4" ry="4.2" />
-            </g>
-            <ellipse className="ghost-mouth" cx="32" cy="43" rx="2.6" ry="2.2" />
-          </svg>
+          <PeekGhost className="ghost-svg" mouth />
         </span>
 
         <span className="ghost-shadow" aria-hidden="true" />
