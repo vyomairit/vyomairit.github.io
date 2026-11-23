@@ -1069,9 +1069,13 @@ button.project-thumb {
   outline-offset: 2px;
 }
 
-/* Screenshots are shown whole on a dark stage, never cropped. */
+/* Screenshots are shown whole, never cropped, on a stage that follows the
+   theme: the same dotted surface as the featured cards' figure panel. */
 .pm-media {
-  background: #0b0810;
+  border-bottom: 1px solid rgb(var(--line));
+  background:
+    radial-gradient(rgb(var(--ink) / 0.08) 1px, transparent 1.2px) 0 0 / 16px 16px,
+    rgb(var(--surface));
 }
 
 .pm-stage {
@@ -1085,6 +1089,7 @@ button.project-thumb {
 
 .pm-stage img {
   display: block;
+  box-shadow: var(--shadow);
   min-width: 0;
   min-height: 0;
   max-width: 100%;
@@ -1144,7 +1149,7 @@ button.project-thumb {
 }
 
 .pm-thumb.is-active {
-  border-color: rgb(var(--highlight));
+  border-color: rgb(var(--accent));
   opacity: 1;
 }
 
