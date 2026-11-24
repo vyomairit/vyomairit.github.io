@@ -2,12 +2,12 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { sendContact } from "../api/api";
+import { isApiError, sendContact } from "../api/api";
 import { ArrowRight, Check, Copy } from "../components/Icons";
 import { profile } from "../content/profile";
 import { useSiteData } from "../hooks/useSiteData";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error" | "limited";
 
 type ContactProps = {
   /** "card" is the closing block on /resume: no form, no section number. */
@@ -39,8 +39,10 @@ const Contact = ({ variant = "section" }: ContactProps) => {
       await sendContact(form);
       setForm({ name: "", email: "", message: "" });
       setStatus("sent");
-    } catch {
-      setStatus("error");
+    } catch (err) {
+      // 429: the backend allows 3 messages per IP per hour. Keep the draft so
+      // nothing typed is lost.
+      setStatus(isApiError(err) && err.status === 429 ? "limited" : "error");
     }
   };
 
@@ -159,6 +161,8 @@ const Contact = ({ variant = "section" }: ContactProps) => {
               <p className={`contact-status is-${status}`} role="status">
                 {status === "sent" && "Thanks — I'll reply within a day."}
                 {status === "error" && "That didn't go through. Email or LinkedIn will reach me."}
+                {status === "limited" &&
+                  "You've sent a few notes already — try again in an hour, or email me directly."}
               </p>
             </form>
           )}

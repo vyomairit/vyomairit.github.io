@@ -2361,7 +2361,8 @@ a.cred:hover strong {
   color: rgb(var(--ok));
 }
 
-.contact-status.is-error {
+.contact-status.is-error,
+.contact-status.is-limited {
   color: rgb(var(--danger));
 }
 
